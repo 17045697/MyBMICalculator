@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor preEdit = prefs.edit();
-            preEdit.putString("datetime",datetime);
             preEdit.commit();
 
         }
@@ -147,6 +146,11 @@ public class MainActivity extends AppCompatActivity {
                 etWeight.setText(null);
                 tvBMI.setText("Last Calculated BMI: ");
                 tvDate.setText("Last Calculated Date: ");
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+                SharedPreferences.Editor prefEdit = prefs.edit();
+                prefEdit.clear();
+                prefEdit.commit();
+
             }
         });
     }
